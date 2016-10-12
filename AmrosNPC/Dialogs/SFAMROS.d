@@ -1,86 +1,103 @@
-BEGIN ~SFAMROS~ // Initial dialog file
+BEGIN ~SFAMROS~
 
-// New Dialog State (named "Introduction")
 IF ~NumTimesTalkedTo(0)~ THEN
 BEGIN Introduction
-	// Dialog contents go in here
-	SAY ~Greetings, my <LADYLORD>. I'm Amros, servant of Kelemvor.~
+	SAY @1000
 	
-	// First transition
-	IF ~ReputationGT([PC], 10)~ THEN
-		// This is your first reply
-		REPLY ~I'm <CHARNAME>. It's an honor to meet you.~
-		GOTO IntroductionGood
+	IF ~Class([PC], "PALADIN")~ THEN
+		REPLY @1001
+		GOTO IntroductionPaladin
 		
-	IF ~ReputationLT([PC], 11)~ THEN
-		REPLY ~I'm <CHARNAME>. What are you doing here?~
-		GOTO IntroductionNormal
+	IF ~ReputationGT([PC], 11)~ THEN
+		REPLY @1005
+		GOTO IntroductionGoodRep
 		
 	IF ~~ THEN
-		REPLY ~Get off, paladin!~
+		REPLY @1007
+		GOTO IntroductionLowRep
+		
+	IF ~~ THEN
+		REPLY @1010
 		EXIT
 		
-END // End Introduction
+END
 
 IF ~~ THEN
-BEGIN IntroductionGood
-	SAY ~<CHARNAME>? The honor is mine. I heard something... about you. I think you need my assistance.~
-    
-    IF ~~ THEN
-        REPLY ~I'd be happy to have you in my party.~
+BEGIN IntroductionPaladin
+	SAY @1002
+	
+	IF ~~ THEN
+        REPLY @1003
         DO ~SetGlobal("KickedOut", "LOCALS", 0)
             JoinParty()~
         EXIT
         
     IF ~~ THEN
-        REPLY ~No, thanks.~
+        REPLY @1004
+        EXIT
+
+END
+
+IF ~~ THEN
+BEGIN IntroductionGoodRep
+	SAY @1006
+    
+    IF ~~ THEN
+        REPLY @1003
+        DO ~SetGlobal("KickedOut", "LOCALS", 0)
+            JoinParty()~
+        EXIT
+        
+    IF ~~ THEN
+        REPLY @1004
         EXIT
 END
 
 IF ~~ THEN
-BEGIN IntroductionNormal
-	SAY ~I have nothing to tell you.~
+BEGIN IntroductionLowRep
+	SAY @1008
 	IF ~~ THEN
-		REPLY ~Nor I.~
+		REPLY @1009
 		EXIT
 END
 
 IF ~NumTimesTalkedToGT(0) ReputationGT([PC], 15)~ THEN
 BEGIN IntroductionLater
-    SAY ~You're back. Are you ready to apologise?~
+    SAY @1011
     
     IF ~~ THEN
-        REPLY ~Yes, I'm sorry. Do you want to join my party?~
+        REPLY @1012
         DO ~SetGlobal("KickedOut", "LOCALS", 0)
             JoinParty()~
         EXIT
         
     IF ~~ THEN
-        REPLY ~Bugger off.~
+        REPLY @1013
         EXIT
 
 END
+
 
 BEGIN ~SFAMROSP~
 
 IF ~Global("KickedOut", "LOCALS", 0)~ THEN
 BEGIN Kickout
-    SAY ~Oh, you don't need me no more?~
+    SAY @1014
     
     IF ~~ THEN
-        REPLY ~No, I made a mistake. Please stay.~
+        REPLY @1015
         DO ~JoinParty()~
         EXIT
         
     IF ~~ THEN
-        REPLY ~Yes, it's time to part ways.~
+        REPLY @1016
         GOTO KickoutFinal
     
 END
 
 IF ~~ THEN
 BEGIN KickoutFinal
-    SAY ~Very well. I'll travel back to the Friendly Arms Inn.~
+    SAY @1017
     
     IF ~~ THEN
         DO ~SetGlobal("KickedOut", "LOCALS", 1)
@@ -91,15 +108,15 @@ END
 
 IF ~Global("KickedOut", "LOCALS", 1)~ THEN
 BEGIN Rejoin
-    SAY ~You want me back in the party?~
+    SAY @1018
     
     IF ~~ THEN
-        REPLY ~Yes, I need your services again.~
+        REPLY @1019
         DO ~SetGlobal("KickedOut", "LOCALS", 0)
             JoinParty()~
         EXIT
         
     IF ~~ THEN
-        REPLY ~I don't think so.~
+        REPLY @1020
         EXIT
 END

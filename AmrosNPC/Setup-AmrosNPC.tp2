@@ -1,20 +1,21 @@
-BACKUP ~Backup~
+BACKUP ~amrosnpc/backup~
 AUTHOR ~Slashfox~
 VERSION ~1.0~
 
 LANGUAGE
 	~English~
 	~English~
-	~AmrosNPC/Lang/English/SFAMROS.tra~
+	~amrosnpc/lang/english/sfamros.tra~
 
 LANGUAGE
 	~Spanish~
 	~Spanish~
-	~AmrosNPC/Lang/Spanish/SFAMROS.tra~
+	~amrosnpc/lang/spanish/sfamros.tra~
 
 BEGIN ~Amros NPC for BGEE~
 
-COPY ~AmrosNPC/Cre/SFAMROS.cre~ ~override/SFAMROS.cre~
+// Creature
+COPY ~amrosnpc/cre/sfamros.cre~ ~override/sfamros.cre~
 	SAY BIO @100
     SAY NAME1 @101
     SAY NAME2 @101
@@ -48,19 +49,19 @@ COPY ~AmrosNPC/Cre/SFAMROS.cre~ ~override/SFAMROS.cre~
     SAY REACT_TO_DIE_GENERAL @290
 
 // Portraits
-COPY ~AmrosNPC/Portraits~ ~override~
+COPY ~amrosnpc/portraits~ ~override~
 
 // Dialogs
-COMPILE ~AmrosNPC/Dialogs/SFAMROS.d~
+COMPILE ~amrosnpc/dialogs/sfamros.d~
 
-APPEND ~PDIALOG.2da~
+APPEND ~PDIALOG.2DA~
 ~SFAMROS SFAMROSP SFAMROSJ SFAMROSD~
 UNLESS ~SFAMROS~
 
-APPEND ~INTERDIA.2da~
+APPEND ~INTERDIA.2DA~
 ~SFAMROS SFAMROSB~
 UNLESS ~SFAMROS~
 
 // Scripts
-COMPILE ~AmrosNPC/Scripts/SFAMROS.baf~
-EXTEND_TOP ~AR2300.bcs~ ~AmrosNPC/Scripts/AR2300.baf~
+COMPILE ~amrosnpc/scripts/sfamros.baf~
+EXTEND_TOP ~AR2300.BCS~ ~amrosnpc/scripts/ar2300.baf~

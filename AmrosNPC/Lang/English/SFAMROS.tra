@@ -34,3 +34,26 @@
 @281 = ~If I write a story about our adventures, I'm leaving out this part.~
 
 @290 = ~Death is only the next step. Go in peace.~
+
+
+@1000 = ~Greetings, my <LADYLORD>. I'm Amros, humble paladin of Kelemvor.~
+@1001 = ~Greetings! Glad to see another brother on the path. My name is <CHARNAME>.~
+@1002 = ~The honor is mine <BROTHERSISTER>. I offer you my assistance.~
+@1003 = ~I'd be happy to have you in my party.~
+@1004 = ~No, thanks.~
+@1005 = ~I'm <CHARNAME>. It's an honor to meet you.~
+@1006 = ~<CHARNAME>? The honor is mine. I heard something... about you. I think you need my assistance.~
+@1007 = ~And I'm <CHARNAME>. What do you want?~
+@1008 = ~How rude. I have nothing more to tell you.~
+@1009 = ~Nor I.~
+@1010 = ~Get off, paladin!~
+@1011 = ~You're back. Are you ready to apologise?~
+@1012 = ~Yes, I'm sorry. Do you want to join my party?~
+@1013 = ~Bugger off.~
+@1014 = ~Oh, you don't need me no more?~
+@1015 = ~No, I made a mistake. Please stay.~
+@1016 = ~Yes, it's time to part ways.~
+@1017 = ~Very well. I'll travel back to the Friendly Arms Inn.~
+@1018 = ~You want me back in the party?~
+@1019 = ~Yes, I need your services again.~
+@1020 = ~I don't think so.~

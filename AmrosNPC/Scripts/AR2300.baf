@@ -3,6 +3,6 @@ IF
 THEN
     RESPONSE #100
         SetGlobal("SFAMROSSpawn", "GLOBAL", 1)
-        CreateCreature("SFAMROS", [3326.2528], 14)
+        CreateCreature("sfamros", [3326.2528], 14)
         Continue()
 END
